@@ -26,4 +26,8 @@ const typeDefs = gql`
   }
 `;
 
+export enum TypeDefsNames {
+  Action = 'Action',
+}
+
 export default typeDefs;

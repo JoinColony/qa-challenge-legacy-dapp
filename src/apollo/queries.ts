@@ -21,5 +21,7 @@ export const selectAllActions = `
     actions
     INNER JOIN users on users.id = actions.userId
     INNER JOIN domains on domains.nativeId = actions.domainId
-    INNER JOIN tokens on tokens.id = actions.tokenId ;
+    INNER JOIN tokens on tokens.id = actions.tokenId
+  ORDER BY
+    actions.createdAt DESC;
 `;
