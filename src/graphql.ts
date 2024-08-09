@@ -9,3 +9,14 @@ export const ListActionsQuery = gql`
     }
   }
 `;
+
+export const GetUser = gql`
+  query GetUser($walletAddress: ID!) {
+    getUser(walletAddress: $walletAddress) @client {
+      id
+      walletAddress: id
+      username
+      __typename
+    }
+  }
+`;

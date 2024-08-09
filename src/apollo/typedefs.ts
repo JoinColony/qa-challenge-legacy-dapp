@@ -3,6 +3,7 @@ import { gql } from '@apollo/client';
 const typeDefs = gql`
   extend type Query {
     listActions: [Action]!
+    getUser: User!
   }
 
   type Action {
@@ -24,10 +25,16 @@ const typeDefs = gql`
     domainName: String
     domainColor: String
   }
+
+  type User {
+    id: ID!
+    username: String!
+  }
 `;
 
 export enum TypeDefsNames {
   Action = 'Action',
+  User = 'User',
 }
 
 export default typeDefs;

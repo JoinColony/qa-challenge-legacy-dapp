@@ -6,12 +6,14 @@ import DropdownMenuSection from '../DropdownMenu/DropdownMenuSection/DropdownMen
 
 interface Props {
   closePopover: () => void;
+  handleDisconnect?: () => void;
 }
 
 const displayName = 'users.AvatarDropdown.AvatarDropdownPopover';
 
 const AvatarDropdownPopover = ({
   closePopover,
+  handleDisconnect,
 }: Props) => {
   return (
     <DropdownMenu onClick={closePopover}>
@@ -20,9 +22,15 @@ const AvatarDropdownPopover = ({
           <a href='/profile'>My Profile</a>
         </DropdownMenuItem>
       </DropdownMenuSection>
-      <DropdownMenuItem>
-        <a href='/logout'>Logout</a>
-      </DropdownMenuItem>
+      <DropdownMenuSection separator>
+        <DropdownMenuItem>
+          <button type="button" onClick={() => {
+            if (handleDisconnect) {
+              handleDisconnect();
+            }
+          }}>Logout</button>
+        </DropdownMenuItem>
+      </DropdownMenuSection>
     </DropdownMenu>
   );
 };

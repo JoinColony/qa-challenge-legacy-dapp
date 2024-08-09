@@ -10,6 +10,7 @@ import styles from './AvatarDropdown.module.css';
 
 interface Props {
   walletAddress: string;
+  handleDisconnect?: () => void;
 }
 
 const displayName = 'users.AvatarDropdown';
@@ -20,6 +21,7 @@ const verticalOffset = '19px';
 
 const AvatarDropdown = ({
   walletAddress,
+  handleDisconnect,
 }: Props) => {
   /*
    * @NOTE Offset Calculations
@@ -43,6 +45,7 @@ const AvatarDropdown = ({
   const popoverContent = ({ close }: { close: any }) => (
     <AvatarDropdownPopover
       closePopover={close}
+      handleDisconnect={handleDisconnect}
     />
   );
   return (

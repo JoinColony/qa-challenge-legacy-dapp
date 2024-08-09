@@ -25,3 +25,12 @@ export const selectAllActions = `
   ORDER BY
     actions.createdAt DESC;
 `;
+
+export const getUser = `
+  SELECT
+    *
+  FROM
+    users
+  WHERE
+    id = "$$id";
+`;
