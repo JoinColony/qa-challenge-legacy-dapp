@@ -20,21 +20,21 @@ const TotalFundsSelectedToken = ({
   const nativeToken = balances?.find(({ isNative }) => isNative);
 
   const [currentTokenAddress, setCurrentTokenAddress] = useState<string>(
-    nativeToken?.tokenAddress || '',
+    nativeToken?.id || '',
   );
 
   useEffect(() => {
-    setCurrentTokenAddress(nativeToken?.tokenAddress || '');
+    setCurrentTokenAddress(nativeToken?.id || '');
   }, [nativeToken]);
 
   const currentToken = useMemo(() => {
-    return balances?.find(({ tokenAddress }) => tokenAddress === currentTokenAddress);
+    return balances?.find(({ id }) => id === currentTokenAddress);
   }, [balances, currentTokenAddress]);
 
   return (
     <div className={styles.selectedToken}>
       <span className={styles.selectedTokenAmount}>
-        {currentToken?.tokenBalance || '0'}
+        {currentToken?.balance || '0'}
       </span>
       <TotalFundsPopover
         balances={balances}
@@ -42,7 +42,7 @@ const TotalFundsSelectedToken = ({
         currentTokenAddress={currentTokenAddress}
       >
         <button className={styles.selectedTokenSymbol} type="button">
-          <span>{currentToken?.tokenSymbol}</span>
+          <span>{currentToken?.symbol}</span>
         </button>
       </TotalFundsPopover>
       {children}

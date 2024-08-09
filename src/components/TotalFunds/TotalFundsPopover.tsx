@@ -25,32 +25,32 @@ const TotalFundsPopover = ({
       content={({ close }) => (
         <ul className={styles.main}>
           {balances.map((balance) => (
-            <li key={balance.tokenAddress}>
+            <li key={balance.id}>
               <button
                 type="button"
                 onClick={() => {
                   if (onSelectToken) {
-                    onSelectToken(balance.tokenAddress);
+                    onSelectToken(balance.id);
                   }
                   close();
                 }}
               >
                 <div className={styles.token}>
                   <div className={styles.tokenIconContainer}>
-                    <Avatar seed={balance.tokenAddress} />
+                    <Avatar seed={balance.id} size="xs" />
                   </div>
                   <div
                     className={
-                      balance.tokenAddress === currentTokenAddress
+                      balance.id === currentTokenAddress
                         ? styles.tokenInfoContainerActive
                         : styles.tokenInfoContainer
                     }
                   >
                     <span className={styles.tokenSymbol}>
-                      {balance.tokenSymbol || '???'}
+                      {balance.symbol || '???'}
                     </span>
                     <span className={styles.tokenBalance}>
-                      {balance.tokenBalance || '0'}
+                      {balance.balance || '0'}
                     </span>
                   </div>
                 </div>

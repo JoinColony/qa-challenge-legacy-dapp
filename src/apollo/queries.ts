@@ -34,3 +34,41 @@ export const getUser = `
   WHERE
     id = "$$id";
 `;
+
+export const getColony = `
+  SELECT
+    colonies.id,
+    colonies.id as colonyAddress,
+    colonies.name,
+    colonies.displayName,
+    tokens.id as tokenAddress,
+    tokens.name as tokenName,
+    tokens.symbol as tokenSymbol,
+    colonies.balance as tokenBalance
+  FROM
+    colonies
+    INNER JOIN tokens on tokens.id = colonies.tokenId
+  WHERE
+    colonies.id = "$$id";
+`;
+
+export const getDomains = `
+  SELECT
+    *
+  FROM
+    domains
+  WHERE
+    colonyId = "$$id"
+  ORDER BY
+    nativeId ASC;
+`;
+
+export const getTokens = `
+  SELECT
+    id,
+    id as tokenAddress,
+    name,
+    symbol
+  FROM
+    tokens;
+`;

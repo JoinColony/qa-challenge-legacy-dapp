@@ -5,7 +5,15 @@ import typeDefs, { TypeDefsNames } from './typedefs';
 import {
   selectAllActions,
   getUser,
+  getColony,
+  getDomains,
+  getTokens,
 } from './queries';
+import {
+  GetDomains,
+  GetAllTokens,
+} from '../graphql';
+
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -30,7 +38,97 @@ const client = new ApolloClient({
         } catch (error) {
           console.log(error);
         }
-      }
+      },
+      getColony: (_, { colonyAddress }) => {
+        try {
+          const query = db.exec(getColony.replace('$$id', colonyAddress));
+          if (query?.length) {
+            return formatQueryResultRows(query, TypeDefsNames.ExtendedColony)[0]; // only the first entry
+          }
+          return null;
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      getDomains: (_, { colonyAddress }) => {
+        try {
+          const query = db.exec(getDomains.replace('$$id', colonyAddress));
+          if (query?.length) {
+            return formatQueryResultRows(query, TypeDefsNames.Domain);
+          }
+          return null;
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      getAllTokens: () => {
+        try {
+          const query = db.exec(getTokens);
+          if (query?.length) {
+            return formatQueryResultRows(query, TypeDefsNames.Token);
+          }
+          return null;
+        } catch (error) {
+          console.log(error);
+        }
+      },
+    },
+    ExtendedColony: {
+      nativeToken: (colony) => {
+        try {
+          return {
+            id: colony.tokenAddress,
+            name: colony.tokenName,
+            symbol: colony.tokenSymbol,
+            __typename: TypeDefsNames.Token,
+          };
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      domains: async (colony, _, { client }) => {
+        try {
+          const { data } = await client.query({
+            query: GetDomains,
+            variables: { colonyAddress: colony.colonyAddress },
+          });
+          if (data?.getDomains) {
+            return data.getDomains;
+          }
+          return null;
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      tokens: async (colony, _, { client }) => {
+        try {
+          const { data } = await client.query({ query: GetAllTokens });
+          if (data?.getAllTokens) {
+            const filteredTokens = data.getAllTokens
+              .filter(({ id }: { id: string }) => id !== colony.tokenAddress)
+              .map((token: any) => ({
+                ...token,
+                balance: 0,
+                isNative: false,
+                __typename: TypeDefsNames.TokenWithBalance,
+              }));
+            return [
+              ...filteredTokens,
+              {
+                id: colony.tokenAddress,
+                name: colony.tokenName,
+                symbol: colony.tokenSymbol,
+                balance: colony.tokenBalance,
+                isNative: true,
+                __typename: TypeDefsNames.TokenWithBalance,
+              },
+            ];
+          }
+          return null;
+        } catch (error) {
+          console.log(error);
+        }
+      },
     },
   },
 });

@@ -5,10 +5,10 @@ import TotalFundsSelectedToken from './TotalFundsSelectedToken';
 import styles from './TotalFunds.module.css';
 
 export type Balances = {
-  tokenAddress: string;
-  tokenBalance: string;
-  tokenName: string;
-  tokenSymbol: string;
+  id: string;
+  balance: string;
+  name: string;
+  symbol: string;
   isNative: boolean;
 };
 
@@ -18,12 +18,12 @@ type Props = {
 
 const displayName = 'dashboard.ColonyTotalFunds';
 
-const TotalFunds = ({ balances}: Props) => {
+const TotalFunds = ({ balances }: Props) => {
   return (
     <div className={styles.main}>
       <TotalFundsSelectedToken balances={balances} />
       <div className={styles.totalBalanceCopy}>
-        Colony total balance
+        Total balance
       </div>
     </div>
   );

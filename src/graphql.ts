@@ -20,3 +20,63 @@ export const GetUser = gql`
     }
   }
 `;
+
+export const GetDomains = gql`
+  query GetDomains($colonyAddress: ID!) {
+    getDomains(colonyAddress: $colonyAddress) @client {
+      id
+      nativeId
+      parent
+      name
+      color
+      colonyId
+      __typename
+    }
+  }
+`;
+
+export const GetAllTokens = gql`
+  query GetAllTokens {
+    getAllTokens @client {
+      id
+      name
+      symbol
+      __typename
+    }
+  }
+`;
+
+export const GetFullColony = gql`
+  query GetFullColony($colonyAddress: ID!) {
+    getColony(colonyAddress: $colonyAddress) @client {
+      id
+      colonyAddress
+      name
+      displayName
+      nativeToken @client {
+        id
+        name
+        symbol
+        __typename
+      }
+      domains @client {
+        id
+        nativeId
+        parent
+        name
+        color
+        colonyId
+        __typename
+      }
+      tokens @client {
+        id
+        name
+        symbol
+        balance
+        isNative
+        __typename
+      }
+      __typename
+    }
+  }
+`;
