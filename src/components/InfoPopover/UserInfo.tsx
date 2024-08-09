@@ -18,10 +18,12 @@ const UserInfo = ({
 }: Props) => {
   return (
     <div className={styles.container}>
-      <Avatar
-        size="s"
-        seed={walletAddress}
-      />
+      <div>
+        <Avatar
+          size="s"
+          seed={username || walletAddress}
+        />
+      </div>
       <div className={styles.textContainer}>
         {username && (
           <p className={styles.userName}>

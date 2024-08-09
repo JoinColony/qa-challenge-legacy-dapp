@@ -1,8 +1,11 @@
 import React, { ReactChild, useState } from 'react';
 import { useQuery } from '@apollo/client';
+import { Helmet } from 'react-helmet';
 
 import ColonyDomainSelector from '../DomainSelector/ColonyDomainSelector';
 import ColonyTotalFunds from '../TotalFunds/TotalFunds';
+
+import ColonyActions from '../ColonyActions/ColonyActions';
 
 import Button from '../Button/Button';
 
@@ -30,6 +33,9 @@ const HomeLayout = ({
 
   return (
     <div className={styles.main}>
+      <Helmet>
+        <title>{colony?.displayName || colony?.name} Colony Actions List</title>
+      </Helmet>
       <div
         className={styles.mainContentGrid}
       >
@@ -50,6 +56,10 @@ const HomeLayout = ({
               disabled
             />
           </div>
+          <ColonyActions
+            colony={colony}
+            selectedDomainId={selectedDomain}
+          />
           {children}
         </div>
           <aside className={styles.rightAside} />

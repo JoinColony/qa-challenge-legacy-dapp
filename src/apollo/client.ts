@@ -8,6 +8,7 @@ import {
   getColony,
   getDomains,
   getTokens,
+  getColonyActions,
 } from './queries';
 import {
   GetDomains,
@@ -68,6 +69,18 @@ const client = new ApolloClient({
             return formatQueryResultRows(query, TypeDefsNames.Token);
           }
           return null;
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      getActions: (_, { colonyAddress, sort }) => {
+        try {
+          const query = db.exec(
+            getColonyActions
+              .replace('$$id', colonyAddress)
+              .replace('$$sort', sort || 'DESC'),
+          );
+          return formatQueryResultRows(query, TypeDefsNames.Action);
         } catch (error) {
           console.log(error);
         }

@@ -43,7 +43,7 @@
 }
 
 .userName {
-  composes: inlineEllipsis from "~styles/text.css";
+  composes: inlineEllipsis from "../../styles/shared/text.module.css";
   margin-bottom: 2px;
   width: 100%;
 }
@@ -77,7 +77,7 @@
 }
 
 .symbol {
-  composes: inlineEllipsis from '~styles/text.module.css';
+  composes: inlineEllipsis from '../../styles/shared/text.module.css';
   margin: 0 0 6px 0;
   font-weight: var(--weight-bold);
   color: var(--pink);
@@ -93,7 +93,7 @@
 }
 
 .container {
-  composes: flexContainerRow flexAlignCenter from '~styles/layout.module.css';
+  composes: flexContainerRow flexAlignCenter from '../../styles/shared/layout.module.css';
   display: flex;
 }
 

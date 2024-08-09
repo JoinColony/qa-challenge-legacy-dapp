@@ -7,6 +7,7 @@ const typeDefs = gql`
     getColony: ExndedColony!
     getDomains: [Domain]!
     getAllTokens: [Token]!
+    getActions: [Action]!
   }
 
   type Action {

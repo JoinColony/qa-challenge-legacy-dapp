@@ -5,6 +5,7 @@ import styles from './UserMention.module.css';
 interface Props {
   /** A user's username (ENS) */
   username: string;
+  [key: string]: any;
 }
 
 const UserMention = ({

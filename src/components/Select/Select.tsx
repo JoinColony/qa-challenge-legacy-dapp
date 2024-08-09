@@ -86,7 +86,7 @@ export interface Props {
 const displayName = 'Select';
 
 const Select = ({
-  appearance,
+  appearance = { alignOptions: 'left', theme: 'default' },
   disabled,
   elementOnly,
   help,
@@ -94,7 +94,7 @@ const Select = ({
   label,
   name,
   onChange: onChangeCallback,
-  options,
+  options = [],
   optionsFooter,
   placeholder,
   renderActiveOption,
@@ -328,10 +328,5 @@ const Select = ({
 };
 
 Select.displayName = displayName;
-
-Select.defaultProps = {
-  appearance: { alignOptions: 'left', theme: 'default' } as Appearance,
-  options: [],
-};
 
 export default Select;

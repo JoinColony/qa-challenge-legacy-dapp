@@ -80,3 +80,28 @@ export const GetFullColony = gql`
     }
   }
 `;
+
+export const GetActions = gql`
+  query GetActions($colonyAddress: ID!, $sort: String = "DESC") {
+    getActions(colonyAddress: $colonyAddress, sort: $sort) @client {
+      id
+      transactionHash
+      amount
+      createdAt
+      data
+      type
+      status
+      version
+      permissions
+      domainId
+      domainName
+      domainColor
+      walletAddress
+      username
+      tokenAddress
+      tokenName
+      tokenSymbol
+      __typename
+    }
+  }
+`;
