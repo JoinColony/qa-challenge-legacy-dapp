@@ -1,0 +1,3 @@
+.layout {
+  composes: stretch from './styles/shared/layout.module.css';
+}

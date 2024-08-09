@@ -4,7 +4,8 @@ import { ApolloProvider } from '@apollo/client';
 
 import client from './apollo/client';
 import App from './App';
-import './index.css';
+
+import './styles/main.module.css';
 
 // @ts-ignore
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -28,6 +28,7 @@ export const formatQueryResultRows = (queryResult: any, typeName: String | null 
 };
 
 const SQL = await initSqlJs({ locateFile: () => sqlWasm });
+
 const db = new SQL.Database(binaryToUint8Array(binAsString));
 
 export default db;

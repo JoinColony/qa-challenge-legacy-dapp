@@ -1,0 +1,8 @@
+.mention {
+  composes: inlineEllipsis from '../../styles/shared/text.module.css';
+  display: block;
+  font-size: var(--size-smallish);
+  font-weight: var(--weight-bold);
+  color: var(--pink);
+}
+

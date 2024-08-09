@@ -11,7 +11,21 @@ module.exports = {
           {
             test: /\.s3db$/,
             use: 'binary-loader',
-          }
+          },
+          // {
+          //   test: /\.module.css$/,
+          //   use: [
+          //     'style-loader',
+          //     {
+          //       loader: 'css-loader',
+          //       options: {
+          //         modules: true,
+          //         importLoaders: 1,
+          //       }
+          //     },
+          //     'postcss-loader',
+          //   ],
+          // }
         ]
       },
       resolve: {
