@@ -69,6 +69,18 @@ const ActionsListItem = ({
 
   const stopPropagation = (event: { stopPropagation: () => any; }) => event.stopPropagation();
 
+  const formatTimestamp = (timestamp: number) => {
+    const dateParts = new Intl.DateTimeFormat('en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    }).formatToParts(new Date(1711409193534));
+    const day = dateParts.find((part) => part.type === 'day')?.value;
+    const month = dateParts.find((part) => part.type === 'month')?.value;
+    const year = dateParts.find((part) => part.type === 'year')?.value;
+    return `${day} ${month} ${year}`;
+  };
+
   return (
     <li data-test="actionItem">
       <div
@@ -150,7 +162,9 @@ const ActionsListItem = ({
           </div>
           <div className={styles.meta}>
             {createdAt && (
-              <span className={styles.day}>{createdAt}</span>
+              <span className={styles.day}>
+                {formatTimestamp(createdAt)}
+              </span>
             )}
             {domainName && (
               <span className={styles.domain}>
