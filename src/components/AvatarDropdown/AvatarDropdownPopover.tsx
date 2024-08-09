@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
 import DropdownMenuItem from '../DropdownMenu/DropdownMenuItem/DropdownMenuItem';
 import DropdownMenuSection from '../DropdownMenu/DropdownMenuSection/DropdownMenuSection';
+
+import { navigate } from '../NaiveRouter/NaiveRouter';
+
 
 interface Props {
   closePopover: () => void;
@@ -15,20 +18,32 @@ const AvatarDropdownPopover = ({
   closePopover,
   handleDisconnect,
 }: Props) => {
+  const handleNavigate = useCallback((path: string) => navigate(path), []);
+
   return (
     <DropdownMenu onClick={closePopover}>
       <DropdownMenuSection separator>
         <DropdownMenuItem>
-          <a href='/profile'>My Profile</a>
+          <button
+            type="button"
+            onClick={() => handleNavigate('/profile')}
+          >
+            My Profile
+          </button>
         </DropdownMenuItem>
       </DropdownMenuSection>
       <DropdownMenuSection separator>
         <DropdownMenuItem>
-          <button type="button" onClick={() => {
-            if (handleDisconnect) {
-              handleDisconnect();
-            }
-          }}>Logout</button>
+          <button
+            type="button"
+            onClick={() => {
+              if (handleDisconnect) {
+                handleDisconnect();
+              }
+            }}
+          >
+            Logout
+          </button>
         </DropdownMenuItem>
       </DropdownMenuSection>
     </DropdownMenu>
