@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ApolloProvider } from '@apollo/client';
 
-import client from './apollo/client.ts';
-import App from './App.tsx';
+import client from './apollo/client';
+import App from './App';
 import './index.css';
 
 // @ts-ignore
