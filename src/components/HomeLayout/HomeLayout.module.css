@@ -120,3 +120,7 @@
     padding: 9px clamp(22px, 7%, 32px);
   }
 }
+
+.loadingSpinner {
+  margin-top: 100px;
+}

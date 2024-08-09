@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 
 import ColonyDomainSelector from '../DomainSelector/ColonyDomainSelector';
 import ColonyTotalFunds from '../TotalFunds/TotalFunds';
-
+import SpinnerLoader from '../Preloaders/SpinnerLoader';
 import ColonyActions from '../ColonyActions/ColonyActions';
 
 import Button from '../Button/Button';
@@ -26,7 +26,14 @@ const HomeLayout = ({
   const { data, loading } = useQuery(GetFullColony, { variables: { colonyAddress: '0xe00001' } });
 
   if (!data || loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className={styles.loadingSpinner}>
+        <SpinnerLoader
+          loadingText="Loading Colony"
+          appearance={{ theme: 'primary', size: 'massive' }}
+        />
+      </div>
+    );
   }
 
   const { getColony: colony } = data;
