@@ -1,21 +1,12 @@
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
+
+import { ListActionsQuery } from './graphql';
 
 import logo from './logo.svg';
 import './App.css';
 
-
-
 function App() {
-  const TEST_QUERY = gql`
-    query TestQuery {
-      getAuthStatus @client {
-        isLoggedIn
-      }
-    }
-  `;
-
-  const { data } = useQuery(TEST_QUERY);
-
+  const { data } = useQuery(ListActionsQuery);
   console.log({data});
 
   return (
