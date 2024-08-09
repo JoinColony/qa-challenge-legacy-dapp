@@ -13,7 +13,7 @@
   height: 26px;
   position: relative;
   border-radius: var(--radius-normal);
-  background-color: color-mod(var(--temp-grey-blue-7) alpha(10%));
+  background-color: rgba(118, 116, 139, 0.1);
   font-size: var(--size-smallish);
   line-height: 26px;
 }
@@ -34,7 +34,7 @@
 }
 
 .notificationsIcon:hover {
-  background-color: color-mod(var(--colony-blue) alpha(10%));
+  background-color: rgba(79, 93, 255, 0.1);
 }
 
 .notificationsIcon:hover svg {
@@ -63,25 +63,25 @@
 .connectWalletButton {
   margin-right: 25px;
   padding: 4px 9px 5px 9px;
-  border: 1px solid var(--temp-grey-blue-7);
+  border: 1px solid rgb(118, 116, 139);
   border-radius: var(--radius-tiny);
   background-color: transparent;
   font-size: var(--size-smallish);
   font-weight: var(--weight-bold);
-  color: var(--temp-grey-blue-7);
+  color: rgb(118, 116, 139);
   cursor: pointer;
 }
 
 .connectWalletButton:hover {
   border-color: transparent;
-  background-color: color-mod(var(--temp-grey-blue-7) alpha(25%));
+  background-color: rgba(118, 116, 139, 0.25);
   color: var(--colony-blue);
 }
 
 .connectWalletButtonActive {
   composes: connectWalletButton;
   border-color: transparent;
-  background-color: color-mod(var(--temp-grey-blue-7) alpha(25%));
+  background-color: rgba(118, 116, 139, 0.25);
   color: var(--colony-blue);
 }
 
@@ -92,7 +92,7 @@
 }
 
 .networkInfo:hover {
-  background-color: color-mod(var(--colony-blue) alpha(10%));
+  background-color: rgba(79, 93, 255, 0.1);
   color: var(--colony-blue);
   cursor: pointer;
 }
@@ -111,8 +111,8 @@
   position: relative;
   border: 1px solid transparent;
   border-radius: var(--radius-normal);
-  background-color: color-mod(var(--temp-grey-blue-7) alpha(10%));
-  color: var(--temp-grey-blue-7);
+  background-color: rgba(118, 116, 139, 0.1);
+  color: rgb(118, 116, 139);
   cursor: pointer;
 }
 
@@ -122,7 +122,7 @@
 }
 
 .walletAddress:hover {
-  background-color: color-mod(var(--colony-blue) alpha(10%));
+  background-color: rgba(79, 93, 255, 0.1);
   color: var(--colony-blue);
 }
 
@@ -160,7 +160,7 @@
 }
 
 .reputation:hover {
-  background-color: color-mod(var(--colony-blue) alpha(10%));
+  background-color: rgba(79, 93, 255, 0.1);
   cursor: pointer;
 }
 
@@ -181,7 +181,7 @@
   padding: 4px 10px 0;
   height: 26px;
   border-radius: var(--radius-normal);
-  background-color: color-mod(var(--temp-grey-blue-7) alpha(10%));
+  background-color: rgba(118, 116, 139, 0.1);
   text-align: center;
 }
 

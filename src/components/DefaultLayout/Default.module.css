@@ -32,11 +32,11 @@
 .history a {
   margin: 0;
   padding: 1px 0;
-  color: color-mod(var(--dark) alpha(70%));
+  color: rgba(60, 68, 77, 0.7);
 }
 
 .history svg {
-  fill: color-mod(var(--dark) alpha(70%));
+  fill: rgba(60, 68, 77, 0.7);
 }
 
 .onlyHistory {

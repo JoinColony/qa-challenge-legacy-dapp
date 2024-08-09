@@ -96,7 +96,7 @@
    * Fonts
    */
   --family-primary: "MuliWeb", sans-serif;
-  --text: color-mod(var(--grey-dark) alpha(70%));
+  --text: rgba(47, 47, 47, 0.7);
   --text-dark: var(--colony-black);
   --text-invert: var(--colony-white);
   --weight-normal: 400;

@@ -12,6 +12,12 @@ const UserNavigation = () => {
   return (
     <>
       <div className={styles.main}>
+        <button
+          type="button"
+          className={styles.connectWalletButton}
+        >
+          Connect Wallet
+        </button>
         <AvatarDropdown
           walletAddress={walletAddress}
         />
