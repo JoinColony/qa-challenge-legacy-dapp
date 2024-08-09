@@ -1,6 +1,7 @@
+import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import { ListActionsQuery } from './graphql';
+import { ListActionsQuery } from './graphql.ts';
 
 import logo from './logo.svg';
 import './App.css';

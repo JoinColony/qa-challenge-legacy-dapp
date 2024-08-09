@@ -1,8 +1,8 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
-import db from './db';
-import typeDefs from './typedefs';
-import { selectAllActions } from './queries';
+import db from './db.ts';
+import typeDefs from './typedefs.ts';
+import { selectAllActions } from './queries.ts';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -13,9 +13,9 @@ const client = new ApolloClient({
         const query = db.exec(selectAllActions);
         const columns = query[0].columns;
         const values = query[0].values;
-        let rows = [];
+        let rows: { [key: string]: any }[] = [];
         values.forEach(element => {
-          let row = {
+          let row: { [key: string]: any } = {
             __typename: 'Action',
           };
           for (let i = 0; i < columns.length; i++) {
