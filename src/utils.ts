@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
 
 /**
  * Capitalize a word (converts the first letter of the word to upper case)
@@ -56,6 +56,18 @@ export const getMainClasses = (
   return [...styles, ...modifierClasses, ...stateClasses].join(' ');
 };
 
+export const useMainClasses = (
+  appearance: any,
+  styles: any,
+  className?: string,
+) =>
+  useMemo(() => className || getMainClasses(appearance, styles), [
+    appearance,
+    className,
+    styles,
+  ]);
+
+
 export const removeValueUnits = (valueWithUnit: string): number => {
   /*
    * Taken from MDN: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units
@@ -96,3 +108,4 @@ export const removeValueUnits = (valueWithUnit: string): number => {
 export const randomBetweenNumbers = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+

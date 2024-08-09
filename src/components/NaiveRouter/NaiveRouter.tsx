@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import HomeLayout from "../Home/HomeLayout";
+
 interface RouteParams {
   [key: string]: string;
 }
@@ -33,7 +35,7 @@ const NaiveRouter: React.FC = () => {
 
   // TODO
   if (route === "/") {
-    return <div>Home Page</div>;
+    return <HomeLayout />;
   } else if (route === "/profile") {
     return <div>Profile Page</div>;
   } else if (matchRoute(/\/tx\/(\w+)/)) {
