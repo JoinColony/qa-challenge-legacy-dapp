@@ -1,0 +1,67 @@
+@value query700 from '../../styles/shared/queries.module.css';
+
+.main {
+  padding: 0 30px 0 15px;
+  overflow: hidden;
+  font-weight: var(--weight-bold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+.main:hover {
+  background-color: var(--grey-blue-0);
+  outline: none;
+}
+
+.main[aria-checked="true"] {
+  color: var(--primary);
+  pointer-events: none;
+}
+
+.main[aria-disabled="true"] {
+  color: rgba(60, 68, 77, 0.5);
+  pointer-events: none;
+}
+
+.main[data-checked="true"] {
+  color: var(--primary);
+}
+
+.checkedMsg {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: var(--size-small);
+  line-height: 1;
+}
+
+.selectedHelpText {
+  padding-left: 5px;
+  font-weight: var(--weight-normal);
+}
+
+.stateBordered + .stateBordered {
+  border-top: 1px solid var(--grey-blue-0);
+}
+
+.stateIsBasicLabel {
+  min-height: 32px;
+  line-height: 32px;
+}
+
+.labelContainer {
+  display: flex;
+  align-items: baseline;
+}
+
+.label {
+  composes: inlineEllipsis from '../../styles/shared/text.module.css';
+  flex-shrink: 1;
+}
+
+@media screen and query700 {
+  .main {
+    padding: 0px 6px;
+  }
+}

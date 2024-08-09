@@ -1,7 +1,7 @@
-import React, { ReactChild } from 'react';
+import React, { ReactChild, useState } from 'react';
 import { useQuery } from '@apollo/client';
 
-// import ColonyDomainSelector from '~dashboard/ColonyHome/ColonyDomainSelector';
+import ColonyDomainSelector from '../DomainSelector/ColonyDomainSelector';
 import ColonyTotalFunds from '../TotalFunds/TotalFunds';
 
 import Button from '../Button/Button';
@@ -13,11 +13,13 @@ type Props = {
   children?: ReactChild;
 };
 
-const displayName = 'dashboard.ColonyHome.ColonyHomeLayout';
+const displayName = 'dashboard.ColonyHome.HomeLayout';
 
-const ColonyHomeLayout = ({
+const HomeLayout = ({
   children,
 }: Props) => {
+  const [selectedDomain, setSelectedDomain] = useState<number>(0);
+
   const { data, loading } = useQuery(GetFullColony, { variables: { colonyAddress: '0xe00001' } });
 
   if (!data || loading) {
@@ -36,11 +38,11 @@ const ColonyHomeLayout = ({
           <ColonyTotalFunds balances={colony.tokens} />
           <div className={styles.contentActionsPanel}>
             <div className={styles.domainsDropdownContainer}>
-              {/* <ColonyDomainSelector
-                filteredDomainId={filteredDomainId}
-                onDomainChange={onDomainChange}
-                colony={colony}
-              /> */}
+              <ColonyDomainSelector
+                filteredDomainId={selectedDomain}
+                onDomainChange={setSelectedDomain}
+                domains={colony.domains}
+              />
             </div>
             <Button
               appearance={{ theme: 'primary', size: 'large' }}
@@ -56,6 +58,6 @@ const ColonyHomeLayout = ({
   );
 };
 
-ColonyHomeLayout.displayName = displayName;
+HomeLayout.displayName = displayName;
 
-export default ColonyHomeLayout;
+export default HomeLayout;

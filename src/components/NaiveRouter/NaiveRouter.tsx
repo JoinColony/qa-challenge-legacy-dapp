@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import HomeLayout from "../Home/HomeLayout";
+import HomeLayout from "../HomeLayout/HomeLayout";
 
 interface RouteParams {
   [key: string]: string;
