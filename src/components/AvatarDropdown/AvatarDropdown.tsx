@@ -5,11 +5,13 @@ import Popover from '../Popover/Popover';
 import Avatar from '../Avatar/Avatar';
 import { removeValueUnits } from '../../../src/utils';
 import AvatarDropdownPopover from './AvatarDropdownPopover';
+import UserMention from '../UserMention/UserMention';
 
 import styles from './AvatarDropdown.module.css';
 
 interface Props {
   walletAddress: string;
+  username: string;
   handleDisconnect?: () => void;
 }
 
@@ -21,6 +23,7 @@ const verticalOffset = '19px';
 
 const AvatarDropdown = ({
   walletAddress,
+  username,
   handleDisconnect,
 }: Props) => {
   /*
@@ -65,23 +68,30 @@ const AvatarDropdown = ({
       }}
     >
       {({ isOpen, toggle, ref, id }) => (
-        <button
-          id={id}
-          ref={ref}
-          className={classnames(styles.avatarButton, {
-            [styles.activeDropdown]: isOpen,
-          })}
-          onClick={toggle}
-          type="button"
-          data-test="avatarDropdown"
-        >
-          {walletAddress && (
-            <Avatar
-              seed={walletAddress}
-              size={'s'}
-            />
+        <div className={styles.main}>
+          {username && (
+            <div className={styles.username}>
+              <UserMention username={username} />
+            </div>
           )}
-        </button>
+          <button
+            id={id}
+            ref={ref}
+            className={classnames(styles.avatarButton, {
+              [styles.activeDropdown]: isOpen,
+            })}
+            onClick={toggle}
+            type="button"
+            data-test="avatarDropdown"
+          >
+            {walletAddress && (
+              <Avatar
+                seed={username || walletAddress}
+                size={'s'}
+              />
+            )}
+          </button>
+        </div>
       )}
     </Popover>
   );

@@ -64,6 +64,7 @@ const UserNavigation = () => {
       <div className={styles.main}>
         {user ? (
           <AvatarDropdown
+            username={user?.username || ''}
             walletAddress={user?.walletAddress || ''}
             handleDisconnect={handleDisconnectWallet}
           />
