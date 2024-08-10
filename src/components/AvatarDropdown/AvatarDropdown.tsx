@@ -86,7 +86,7 @@ const AvatarDropdown = ({
           >
             {walletAddress && (
               <Avatar
-                seed={username || walletAddress}
+                seed={`${username}+${walletAddress}`}
                 size={'s'}
               />
             )}

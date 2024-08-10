@@ -5,7 +5,7 @@ import UserMention from '../UserMention/UserMention';
 
 import { getMainClasses, removeValueUnits } from '../../utils';
 
-import { ClickHandlerProps, Action } from './ActionsList';
+import { ClickHandlerProps, Action, ActionTypes } from './ActionsList';
 import Avatar from '../Avatar/Avatar';
 import InfoPopover from '../InfoPopover/InfoPopover';
 
@@ -30,27 +30,46 @@ const ActionsListItem = ({
     status,
     type,
     domainName,
+    targetDomainName,
     createdAt,
     amount,
     tokenSymbol,
+    permissions,
+    version
   },
+  item,
   handleOnClick,
 }: Props) => {
 
   let title = <span>Generic Action</span>;
 
   switch (type) {
-    case 'MINT':
+    case ActionTypes.Mint:
       title = <span>Mint {amount || 0} {tokenSymbol || '???'}</span>;
       break;
-    case 'PAYMENT':
+    case ActionTypes.Payment:
       title = <span>Pay <UserMention username={username || ''} className={styles.mention} /> {amount || 0} {tokenSymbol || '???'}</span>;
       break;
-    case 'TRANSFER':
+    case ActionTypes.Transfer:
+      title = <span>Move {amount || 0} {tokenSymbol || '???'} from {domainName} to {targetDomainName}</span>;
       break;
-    case 'PERMISSIONS':
+    case ActionTypes.Reputation:
+      title = <span>Awarded <UserMention username={username || ''} className={styles.mention} /> with a {amount || 0} points reputation award</span>;
       break;
-    case 'UPGRADE':
+    case ActionTypes.Permissions:
+      title = <span>Asign the {permissions?.replaceAll(',', ', ')} permissions in {domainName} to <UserMention username={username || ''} className={styles.mention} /></span>;
+      break;
+    case ActionTypes.Upgrade:
+      title = <span>Upgrade to version {version}!</span>;
+      break;
+    case ActionTypes.Details:
+      title = <span>Details changed</span>;
+      break;
+    case ActionTypes.Address:
+      title = <span>Address book was updated</span>;
+      break;
+    case ActionTypes.Team:
+      title = <span>New team: {domainName}</span>;
       break;
 
     default:
@@ -74,11 +93,10 @@ const ActionsListItem = ({
       day: 'numeric',
       month: 'short',
       year: 'numeric',
-    }).formatToParts(new Date(1711409193534));
+    }).formatToParts(new Date(timestamp));
     const day = dateParts.find((part) => part.type === 'day')?.value;
     const month = dateParts.find((part) => part.type === 'month')?.value;
-    const year = dateParts.find((part) => part.type === 'year')?.value;
-    return `${day} ${month} ${year}`;
+    return `${day} ${month}`;
   };
 
   return (
@@ -136,7 +154,7 @@ const ActionsListItem = ({
             >
               <div>
                 <Avatar
-                  seed={username || walletAddress}
+                  seed={`${username}+${walletAddress}`}
                   size='s'
                 />
               </div>
@@ -151,10 +169,10 @@ const ActionsListItem = ({
             {(typeof status !== 'undefined') && (
               <div className={styles.tagWrapper}>
                 <Tag
-                  text={status === 'TRUE' ? 'Passed' : 'Failed'}
+                  text={status ? 'Passed' : 'Failed'}
                   appearance={{
-                    theme: status === 'TRUE' ? 'primary' : 'dangerGhost',
-                    colorSchema: status === 'TRUE' ? 'inverted' : 'plain',
+                    theme: status? 'primary' : 'dangerGhost',
+                    colorSchema: status ? 'inverted' : 'plain',
                   }}
                 />
               </div>

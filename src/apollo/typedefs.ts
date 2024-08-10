@@ -21,6 +21,7 @@ const typeDefs = gql`
     version: Int
     permissions: String
     domainId: ID
+    targetDomainId: ID
     walletAddress: ID
     username: String
     tokenAddress: ID
@@ -28,6 +29,8 @@ const typeDefs = gql`
     tokenSymbol: String
     domainName: String
     domainColor: String
+    targetDomainName: String
+    targetDomainColor: String
   }
 
   type User {

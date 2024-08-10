@@ -18,17 +18,31 @@ export interface SimpleColony {
   [key: string]: any;
 }
 
+export enum ActionTypes {
+  Mint = 'MINT',
+  Payment = 'PAYMENT',
+  Transfer = 'TRANSFER',
+  Reputation = 'REPUTATION',
+  Permissions = 'PERMISSIONS',
+  Upgrade = 'UPGRADE',
+  Details = 'DETAILS',
+  Address = 'ADDRESS',
+  Team = 'TEAM',
+  Generic = 'GENERIC',
+};
+
 export interface Action {
   id: string;
   transactionHash: string;
   amount?: number;
   createdAt: number;
   data?: string;
-  type: string;
+  type: ActionTypes;
   status?: string;
   version?: number;
   permissions?: string;
   domainId: number;
+  targetDomainId?: number;
   walletAddress?: string;
   username?: string
   tokenAddress?: string
@@ -36,6 +50,8 @@ export interface Action {
   tokenSymbol?: string
   domainName?: string
   domainColor?: string
+  targetDomainName?: string
+  targetDomainColor?: string
 }
 
 interface Props {

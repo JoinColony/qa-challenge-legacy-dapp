@@ -85,17 +85,21 @@ export const getColonyActions = `
     actions.version,
     actions.permissions,
     actions.domainId,
+    actions.targetDomainId,
     users.id as walletAddress,
     users.username,
     tokens.id as tokenAddress,
     tokens.name as tokenName,
     tokens.symbol as tokenSymbol,
-    domains.name as domainName,
-    domains.color as domainColor
+    d.name as domainName,
+    d.color as domainColor,
+    td.name as targetDomainName,
+    td.color as targetDomainColor
   FROM
     actions
     INNER JOIN users on users.id = actions.userId
-    INNER JOIN domains on domains.nativeId = actions.domainId
+    INNER JOIN domains d on d.nativeId = actions.domainId
+    LEFT JOIN domains td on td.nativeId = actions.targetDomainId
     INNER JOIN tokens on tokens.id = actions.tokenId
   WHERE
     actions.colonyId = "$$id"

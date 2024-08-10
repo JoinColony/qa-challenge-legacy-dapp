@@ -37,7 +37,10 @@ const TotalFundsPopover = ({
               >
                 <div className={styles.token}>
                   <div className={styles.tokenIconContainer}>
-                    <Avatar seed={balance.name} size="xs" />
+                    <Avatar
+                      seed={`${balance?.name}+${balance?.id}`}
+                      size="xs"
+                    />
                   </div>
                   <div
                     className={

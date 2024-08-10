@@ -21,7 +21,7 @@ const UserInfo = ({
       <div>
         <Avatar
           size="s"
-          seed={username || walletAddress}
+          seed={`${username}+${walletAddress}`}
         />
       </div>
       <div className={styles.textContainer}>

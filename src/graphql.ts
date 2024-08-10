@@ -96,6 +96,9 @@ export const GetActions = gql`
       domainId
       domainName
       domainColor
+      targetDomainId
+      targetDomainName
+      targetDomainColor
       walletAddress
       username
       tokenAddress
