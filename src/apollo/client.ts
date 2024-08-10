@@ -9,12 +9,12 @@ import {
   getDomains,
   getTokens,
   getColonyActions,
+  generateDynamicColonyActionsQuery,
 } from './queries';
 import {
   GetDomains,
   GetAllTokens,
 } from '../graphql';
-
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -73,14 +73,30 @@ const client = new ApolloClient({
           console.log(error);
         }
       },
-      getActions: (_, { colonyAddress, sort }) => {
+      getActions: (_, {
+        colonyAddress,
+        domainId,
+        actionType,
+        limit = 10,
+        skip,
+        sort = 'DESC',
+      }) => {
         try {
           const query = db.exec(
-            getColonyActions
-              .replace('$$id', colonyAddress)
-              .replace('$$sort', sort || 'DESC'),
+            generateDynamicColonyActionsQuery({
+              colonyId: colonyAddress,
+              actionType,
+              domainId,
+              limit,
+              skip,
+              sort,
+            }),
           );
-          return formatQueryResultRows(query, TypeDefsNames.Action);
+          const items = formatQueryResultRows(query, TypeDefsNames.Action);
+          return {
+            items: items.slice(0, limit),
+            canFetchMore: items.length > limit,
+          };
         } catch (error) {
           console.log(error);
         }

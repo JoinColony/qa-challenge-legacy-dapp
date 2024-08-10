@@ -7,7 +7,12 @@ const typeDefs = gql`
     getColony: ExndedColony!
     getDomains: [Domain]!
     getAllTokens: [Token]!
-    getActions: [Action]!
+    getActions: GetActionsQuery!
+  }
+
+  type GetActionsQuery {
+    items: [Action]!
+    canFetchMore: Boolean!
   }
 
   type Action {

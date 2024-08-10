@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import ColonyDomainSelector from '../DomainSelector/ColonyDomainSelector';
 import ColonyTotalFunds from '../TotalFunds/TotalFunds';
 import SpinnerLoader from '../Preloaders/SpinnerLoader';
-import ColonyActions from '../ColonyActions/ColonyActions';
+import Actions from '../Actions/Actions';
 
 import Button from '../Button/Button';
 
@@ -63,7 +63,7 @@ const HomeLayout = ({
               disabled
             />
           </div>
-          <ColonyActions
+          <Actions
             colony={colony}
             selectedDomainId={selectedDomain}
           />

@@ -1,3 +1,5 @@
+import { ActionTypes } from "../components/ActionsList/ActionsList";
+
 export const selectAllActions = `
   SELECT
     actions.id,
@@ -94,7 +96,8 @@ export const getColonyActions = `
     d.name as domainName,
     d.color as domainColor,
     td.name as targetDomainName,
-    td.color as targetDomainColor
+    td.color as targetDomainColor,
+    (SELECT COUNT(1) from actions) as totalCount
   FROM
     actions
     INNER JOIN users on users.id = actions.userId
@@ -106,3 +109,74 @@ export const getColonyActions = `
   ORDER BY
     actions.createdAt $$sort;
 `;
+
+export const generateDynamicColonyActionsQuery = ({
+  colonyId,
+  domainId,
+  actionType,
+  limit,
+  skip,
+  sort = 'DESC',
+}: {
+    colonyId: string;
+    domainId?: number;
+    actionType?: ActionTypes;
+    limit?: number;
+    skip?: number;
+    sort?: 'DESC' | 'ASC';
+}) => {
+  let whereClause = '';
+  let limitClause = '';
+  let skipClause = '';
+  let sortClause = '';
+  let baseQuery = `
+    SELECT
+      actions.id,
+      actions.id as transactionHash,
+      actions.amount,
+      actions.createdAt,
+      actions.data,
+      actions.type,
+      actions.status,
+      actions.version,
+      actions.permissions,
+      actions.domainId,
+      actions.targetDomainId,
+      users.id as walletAddress,
+      users.username,
+      tokens.id as tokenAddress,
+      tokens.name as tokenName,
+      tokens.symbol as tokenSymbol,
+      d.name as domainName,
+      d.color as domainColor,
+      td.name as targetDomainName,
+      td.color as targetDomainColor,
+      (SELECT COUNT(1) from actions) as totalCount
+    FROM
+      actions
+      INNER JOIN users on users.id = actions.userId
+      INNER JOIN domains d on d.nativeId = actions.domainId
+      LEFT JOIN domains td on td.nativeId = actions.targetDomainId
+      INNER JOIN tokens on tokens.id = actions.tokenId`;
+  whereClause += `
+    WHERE
+      actions.colonyId = "${colonyId}"`;
+  if (domainId) {
+    whereClause += ` AND actions.domainId = ${domainId}`;
+  }
+  if (actionType) {
+    whereClause += ` AND actions.type = "${actionType}"`;
+  }
+  sortClause += `
+    ORDER BY
+      actions.createdAt ${sort}`;
+  if (limit) {
+    limitClause += `
+    LIMIT ${limit + 1}`;
+  }
+  if (skip) {
+    skipClause += `
+    OFFSET ${skip}`;
+  }
+  return baseQuery + whereClause + sortClause + limitClause + skipClause + ';\n';
+};

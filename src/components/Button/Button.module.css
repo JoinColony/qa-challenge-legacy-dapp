@@ -144,8 +144,8 @@
 }
 
 .themePrimary:hover {
-  border-color: color-mod(var(--primary) shade(15%));
-  background-color: color-mod(var(--primary) shade(15%));
+  border-color: rgba(104, 210, 210, 0.75);
+  background-color: rgba(104, 210, 210, 0.75);
   color: var(--colony-white);
 }
 
@@ -167,7 +167,7 @@
 }
 
 .themeSecondary:hover {
-  color: color-mod(var(--text) shade(30%));
+  color: rgba(47, 47, 47, 1);
 }
 
 .themeSecondary.colorSchemaInverted {
@@ -175,7 +175,7 @@
 }
 
 .themeSecondary.colorSchemaInverted:hover {
-  color: color-mod(var(--colony-white) shade(30%));
+  color: rgba(47, 47, 47, 1);
 }
 
 /*
@@ -192,7 +192,7 @@
 
 .themeDanger:hover {
   border-color: var(--danger);
-  background-color: color-mod(var(--danger) shade(15%));
+  background-color: rgba(248, 43, 101, 0.8);
   color: var(--colony-white);
 }
 
@@ -229,7 +229,7 @@
 
 .themeGhost:hover {
   border-color: ghostBorder;
-  color: color-mod(var(--colony-black) tint(15%));
+  color: rgba(31, 35, 39)
 }
 
 .themeGhost.colorSchemaInverted {
@@ -239,7 +239,7 @@
 
 .themeGhost.colorSchemaInverted:hover {
   border-color: var(--colony-white);
-  color: color-mod(var(--colony-white) shade(30%));
+  color: rgba(251, 251, 251);
 }
 
 .themeGhost.colorSchemaGrey {
@@ -251,7 +251,7 @@
 
 .themeGhost.colorSchemaGrey:hover {
   border-color: var(--temp-grey-1);
-  color: color-mod(var(--text) shade(30%));
+  color: rgba(47, 47, 47, 0.7);
 }
 
 .themeGhost.colorSchemaGrey.sizeLarge {
@@ -320,7 +320,7 @@
 }
 
 .themeBlueWithBackground:hover {
-  background-color: color-mod(var(--colony-blue) alpha(10%));
+  background-color: rgba(79, 93, 255, 0.1);
   text-decoration: none;
 }
 
@@ -366,7 +366,7 @@
 
 .themePink:hover {
   border-color: var(--pink);
-  background-color: color-mod(var(--pink) shade(15%));
+  background-color: rgb(254, 94, 124);
   color: var(--colony-white);
 }
 

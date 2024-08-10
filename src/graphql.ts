@@ -82,29 +82,44 @@ export const GetFullColony = gql`
 `;
 
 export const GetActions = gql`
-  query GetActions($colonyAddress: ID!, $sort: String = "DESC") {
-    getActions(colonyAddress: $colonyAddress, sort: $sort) @client {
-      id
-      transactionHash
-      amount
-      createdAt
-      data
-      type
-      status
-      version
-      permissions
-      domainId
-      domainName
-      domainColor
-      targetDomainId
-      targetDomainName
-      targetDomainColor
-      walletAddress
-      username
-      tokenAddress
-      tokenName
-      tokenSymbol
-      __typename
+  query GetActions(
+    $colonyAddress: ID!,
+    $domainId: Int,
+    $actionType: String,
+    $limit: Int,
+    $sort: String
+  ) {
+    getActions(
+      colonyAddress: $colonyAddress,
+      domainId: $domainId,
+      actionType: $actionType,
+      limit: $limit,
+      sort: $sort
+    ) @client {
+      items {
+        id
+        transactionHash
+        amount
+        createdAt
+        data
+        type
+        status
+        version
+        permissions
+        domainId
+        domainName
+        domainColor
+        targetDomainId
+        targetDomainName
+        targetDomainColor
+        walletAddress
+        username
+        tokenAddress
+        tokenName
+        tokenSymbol
+        __typename
+      }
+      canFetchMore
     }
   }
 `;
