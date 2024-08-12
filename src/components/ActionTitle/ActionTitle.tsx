@@ -40,7 +40,7 @@ const ActionTitle = ({
       title = <span>Awarded <UserMention username={username || ''} className={styles.mention} /> with a {amount || 0} points reputation award</span>;
       break;
     case ActionTypes.Permissions:
-      title = <span>Asign the {permissions?.replaceAll(',', ', ')} permissions in {domainName} to <UserMention username={username || ''} className={styles.mention} /></span>;
+      title = <span>Assign the {permissions?.replaceAll(',', ', ')} permissions in {domainName} to <UserMention username={username || ''} className={styles.mention} /></span>;
       break;
     case ActionTypes.Upgrade:
       title = <span>Upgrade to version {version}!</span>;

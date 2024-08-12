@@ -46,6 +46,18 @@ export const GetAllTokens = gql`
   }
 `;
 
+export const GetSimpleColony = gql`
+  query GetSimpleColony($colonyAddress: ID!) {
+    getColony(colonyAddress: $colonyAddress) @client {
+      id
+      colonyAddress
+      name
+      displayName
+      __typename
+    }
+  }
+`;
+
 export const GetFullColony = gql`
   query GetFullColony($colonyAddress: ID!) {
     getColony(colonyAddress: $colonyAddress) @client {

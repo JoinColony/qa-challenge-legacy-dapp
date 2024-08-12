@@ -10,12 +10,13 @@ interface Props {
 
 const UserMention = ({
   username,
+  showAtSymbol = true,
   ...props
 }: Props) => {
   return (
     <span className={styles.mention} {...props}>
       {' '}
-      {`@${username}`}
+      {`${showAtSymbol ? '@' : ''}${username}`}
     </span>
   );
 };

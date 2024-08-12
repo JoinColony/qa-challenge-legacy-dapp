@@ -5,7 +5,7 @@ import { navigate } from '../NaiveRouter/NaiveRouter';
 import LoadingTemplate from '../LoadingTemplate/LoadingTemplate';
 import DefaultAction from './DefaultAction/DefaultAction';
 
-import { GetSingleAction } from '../../graphql';
+import { GetSingleAction, GetUser, GetSimpleColony } from '../../graphql';
 
 
 const displayName = 'dashboard.ActionsPage';
@@ -17,23 +17,46 @@ const ActionsPage = ({ actionId }: { actionId: string | null }) => {
     variables: { actionId },
   });
 
+  const {
+    data: userData,
+    loading: loadingUserData,
+    error: errorUserData,
+  } = useQuery(
+    GetUser,
+    { variables: { walletAddress: '0xa00005' } }, // user: zoe
+  );
+
+  const {
+    data: colonyData,
+    loading: loadingColonyData,
+    error: errorColonyData,
+  } = useQuery(
+    GetSimpleColony,
+    { variables: { colonyAddress: '0xe00001' } }, // user: serenity
+  );
+
   useEffect(() => {
-    if (error) {
-      console.error(error);
+    if (error || errorUserData || errorColonyData) {
+      console.error(error || errorUserData);
       handleNavigate(`/404`);
     }
   }, []);
 
-  if (loading || !data.getSingleAction) {
+  if (loading || loadingUserData || loadingColonyData || !data.getSingleAction) {
     return <LoadingTemplate loadingText="Loading Action ..." />;
   }
 
   const { getSingleAction: action } = data;
+  const { getColony: colony } = colonyData;
+  const { getUser: user } = userData;
 
-  console.log({ action });
 
   return (
-    <DefaultAction action={action} />
+    <DefaultAction
+      action={action}
+      user={user}
+      colony={colony}
+    />
   );
 };
 

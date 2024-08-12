@@ -1,0 +1,15 @@
+.main {
+  display: block;
+}
+
+.loading {
+  composes: main;
+  padding: 16px 0 16px 23px;
+}
+
+.loaderMessage {
+  display: inline-block;
+  margin-left: 24px;
+  vertical-align: top;
+  font-size: var(--size-small);
+}
