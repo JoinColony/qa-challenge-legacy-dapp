@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 
-import ActionsList, {
-  ClickHandlerProps as RedirectHandlerProps,
-} from '../ActionsList/ActionsList';
+import ActionsList from '../ActionsList/ActionsList';
 
 import Form from '../Form/Form';
 import Select from '../Select/Select';
@@ -140,7 +138,6 @@ const ColonyActions = ({
 
       <ActionsList
         items={actions}
-        // handleItemClick={handleActionRedirect}
       />
 
       {canFetchMore && (

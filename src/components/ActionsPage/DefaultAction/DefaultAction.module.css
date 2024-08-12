@@ -1,0 +1,149 @@
+@value query700 from '../../../styles/shared/queries.module.css';
+
+.main {
+  padding-top: 90px;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+
+.recoveryTag {
+  margin-bottom: 10px;
+  padding: 4px 8px;
+  height: 20px;
+  vertical-align: middle;
+  border-radius: var(--radius-large);
+  background-color: var(--pink);
+  font-size: var(--size-tiny);
+  font-weight: var(--weight-bold);
+  text-align: center;
+  line-height: var(--size-tiny);
+  color: var(--text-invert);
+  letter-spacing: var(--spacing-medium);
+}
+
+.containerMargin {
+  /*
+   * @NOTE On specs
+   *
+   * The specs designed this for 1440. On this resolution it looks exactly as spec'd.
+   * But as you widen the view port more and more the offset will blur out more and more
+   * and it will start to look centered (due to the percentage margins).
+   *
+   * This is not a bug, this is by design.
+   */
+  margin: 0 13.19% 0 24.3%;
+  width: 900px;
+}
+
+.dividerTop {
+  composes: containerMargin;
+  height: 1px;
+  background-color: rgb(118, 116, 139, 0.15);
+}
+
+.container {
+  composes: containerMargin;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.upperContainer {
+  composes: container;
+  align-items: baseline;
+}
+
+.bannerPadding {
+  padding-top: 41px;
+}
+
+.heading {
+  margin-bottom: 20px;
+  font-size: var(--size-medium-l);
+  font-weight: var(--weight-bold);
+  line-height: 24px;
+  color: var(--dark);
+  letter-spacing: var(--spacing-medium);
+}
+
+.heading span {
+  font-size: var(--size-medium-l);
+}
+
+.content {
+  margin-top: 17px;
+  width: 460px;
+  word-break: break-word;
+}
+
+.details {
+  width: 340px;
+}
+
+.countdownContainer {
+  composes: details;
+  display: flex;
+  align-items: baseline;
+}
+
+.votingCountdownContainer {
+  justify-content: flex-end;
+}
+
+.addressInTitle div {
+  display: inline-block;
+  font-size: var(--size-medium);
+  color: rgb(60, 68, 77, 0.9);
+}
+
+.titleDecoration {
+  font-weight: var(--weight-bold);
+  color: var(--pink);
+}
+
+.tagWrapper {
+  margin-bottom: 13px;
+}
+
+.commentBox {
+  margin-top: 30px;
+  padding-bottom: 40px;
+}
+
+.user {
+  composes: username from '../../DetailsWidgetUser/DetailsWidgetUser.module.css';
+}
+
+@media screen and query700 {
+  .main {
+    padding-top: 0px;
+  }
+
+  .dividerTop {
+    display: none;
+  }
+
+  .container {
+    flex-direction: column;
+    margin: 0;
+    padding: 0 14px;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .setMarginWidth {
+    width: auto;
+  }
+
+  .details {
+    padding-bottom: 60px;
+    width: 100%;
+  }
+
+  .tagWrapper {
+    padding-top: 13px;
+  }
+}

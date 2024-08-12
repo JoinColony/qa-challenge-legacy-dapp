@@ -8,7 +8,7 @@ import {
   getColony,
   getDomains,
   getTokens,
-  getColonyActions,
+  getSingleAction,
   generateDynamicColonyActionsQuery,
 } from './queries';
 import {
@@ -101,6 +101,17 @@ const client = new ApolloClient({
           console.log(error);
         }
       },
+      getSingleAction: (_, { actionId }) => {
+        try {
+          const query = db.exec(getSingleAction.replace('$$id', actionId));
+          if (query?.length) {
+            return formatQueryResultRows(query, TypeDefsNames.Action)[0]; // only the first entry
+          }
+          return null;
+        } catch (error) {
+          console.log(error);
+        }
+      }
     },
     ExtendedColony: {
       nativeToken: (colony) => {

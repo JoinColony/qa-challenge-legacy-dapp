@@ -75,7 +75,7 @@ export const getTokens = `
     tokens;
 `;
 
-export const getColonyActions = `
+export const getSingleAction = `
   SELECT
     actions.id,
     actions.id as transactionHash,
@@ -105,9 +105,8 @@ export const getColonyActions = `
     LEFT JOIN domains td on td.nativeId = actions.targetDomainId
     INNER JOIN tokens on tokens.id = actions.tokenId
   WHERE
-    actions.colonyId = "$$id"
-  ORDER BY
-    actions.createdAt $$sort;
+    actions.id = "$$id"
+  LIMIT 1;
 `;
 
 export const generateDynamicColonyActionsQuery = ({

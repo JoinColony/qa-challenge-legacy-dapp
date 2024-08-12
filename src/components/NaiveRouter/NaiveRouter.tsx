@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import HomeLayout from "../HomeLayout/HomeLayout";
+import ActionsPage from "../ActionsPage/ActionsPage";
 
 interface RouteParams {
   [key: string]: string;
@@ -41,7 +42,7 @@ const NaiveRouter: React.FC = () => {
   } else if (matchRoute(/\/tx\/(\w+)/)) {
     const params = matchRoute(/\/tx\/(\w+)/);
     const transactionId = params && params["0"];
-    return <div>single transaction {transactionId}</div>;
+    return <ActionsPage actionId={transactionId} />;
   }
 
   return <div>404 Not Found</div>;

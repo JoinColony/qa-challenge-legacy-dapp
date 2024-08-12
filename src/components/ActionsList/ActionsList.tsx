@@ -6,18 +6,6 @@ import styles from './ActionsList.module.css';
 
 const displayName = 'ActionsList';
 
-export interface ClickHandlerProps {
-  id: string;
-  transactionHash: string;
-}
-
-export interface SimpleColony {
-  id: string;
-  colonyAddress: string;
-  name: string;
-  [key: string]: any;
-}
-
 export enum ActionTypes {
   Mint = 'MINT',
   Payment = 'PAYMENT',
@@ -56,19 +44,16 @@ export interface Action {
 
 interface Props {
   items: Action[];
-  handleItemClick?: (handlerProps: ClickHandlerProps) => void;
 }
 
 const ActionsList = ({
   items,
-  handleItemClick,
 }: Props) => (
   <ul className={styles.main}>
     {items.map((item) => (
       <ActionsListItem
         key={item.id}
         item={item}
-        handleOnClick={handleItemClick}
       />
     ))}
   </ul>

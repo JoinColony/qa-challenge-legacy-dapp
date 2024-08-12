@@ -123,3 +123,31 @@ export const GetActions = gql`
     }
   }
 `;
+
+export const GetSingleAction = gql`
+  query GetSingleAction($actionId: String) {
+    getSingleAction(actionId: $actionId) @client {
+      id
+      transactionHash
+      amount
+      createdAt
+      data
+      type
+      status
+      version
+      permissions
+      domainId
+      domainName
+      domainColor
+      targetDomainId
+      targetDomainName
+      targetDomainColor
+      walletAddress
+      username
+      tokenAddress
+      tokenName
+      tokenSymbol
+      __typename
+    }
+  }
+`;

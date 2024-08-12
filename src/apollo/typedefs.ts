@@ -3,11 +3,19 @@ import { gql } from '@apollo/client';
 const typeDefs = gql`
   extend type Query {
     listActions: [Action]!
-    getUser: User!
-    getColony: ExndedColony!
-    getDomains: [Domain]!
+    getUser(walletAddress: ID!): User!
+    getColony(colonyAddress: ID!) : ExndedColony!
+    getDomains(colonyAddress: ID!): [Domain]!
     getAllTokens: [Token]!
-    getActions: GetActionsQuery!
+    getActions(
+      colonyAddress: ID!,
+      domainId: Int,
+      actionType: String,
+      limit: Int,
+      offset: Int,
+      sort: String,
+    ): GetActionsQuery!
+    getSingleAction(actionId: String!): Action!
   }
 
   type GetActionsQuery {
