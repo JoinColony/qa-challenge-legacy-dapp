@@ -6,8 +6,6 @@
   position: absolute;
   display: block;
   margin: 4px 0 0 18px;
-  background-color: red;
-
   /*
    * @NOTE Increase the click-able area
    */
@@ -23,5 +21,5 @@
   color: var(--text);
   cursor: pointer;
   top: -76px;
-  left: 20px
+  left: 20px;
 }

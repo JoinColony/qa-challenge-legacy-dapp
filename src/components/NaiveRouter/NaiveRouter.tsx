@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import HomeLayout from "../HomeLayout/HomeLayout";
 import ActionsPage from "../ActionsPage/ActionsPage";
+import UserProfileEdit from "../UserProfileEdit/UserProfileEdit";
 
 interface RouteParams {
   [key: string]: string;
@@ -38,7 +39,7 @@ const NaiveRouter: React.FC = () => {
   if (route === "/") {
     return <HomeLayout />;
   } else if (route === "/profile") {
-    return <div>Profile Page</div>;
+    return <UserProfileEdit />;
   } else if (matchRoute(/\/tx\/(\w+)/)) {
     const params = matchRoute(/\/tx\/(\w+)/);
     const transactionId = params && params["0"];
