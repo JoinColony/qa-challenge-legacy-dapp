@@ -35,7 +35,6 @@ const NaiveRouter: React.FC = () => {
     return null;
   };
 
-  // TODO
   if (route === "/") {
     return <HomeLayout />;
   } else if (route === "/profile") {

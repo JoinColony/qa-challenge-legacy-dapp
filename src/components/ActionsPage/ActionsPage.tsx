@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
+import { Helmet } from 'react-helmet';
 
 import { navigate } from '../NaiveRouter/NaiveRouter';
 import LoadingTemplate from '../LoadingTemplate/LoadingTemplate';
 import DefaultAction from './DefaultAction/DefaultAction';
 
 import { GetSingleAction, GetUser, GetSimpleColony } from '../../graphql';
-
+import { capitalize } from '../../utils';
 
 const displayName = 'dashboard.ActionsPage';
 
@@ -52,11 +53,16 @@ const ActionsPage = ({ actionId }: { actionId: string | null }) => {
 
 
   return (
+    <>
+    <Helmet>
+      <title>{capitalize(action?.type?.toLowerCase())} Action | {colony?.displayName || colony?.name} Colony</title>
+    </Helmet>
     <DefaultAction
       action={action}
       user={user}
       colony={colony}
     />
+    </>
   );
 };
 

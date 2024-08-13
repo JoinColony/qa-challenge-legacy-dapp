@@ -1,5 +1,6 @@
 import React, { useEffect, useCallback } from 'react';
 import { useQuery } from '@apollo/client';
+import { Helmet } from 'react-helmet';
 
 import ProfileLayout from '../ProfileLayout/ProfileLayout';
 import Sidebar from './Sidebar';
@@ -38,14 +39,14 @@ const UserProfileEdit = () => {
 
   const { getUser: user } = data;
 
-  console.log({ data })
-
   return (
     <ProfileLayout
       appearance={{ theme: 'alt' }}
       asideContent={<Sidebar user={user} />}
     >
-      <div />
+      <Helmet>
+        <title>User Profile | {user?.username}</title>
+      </Helmet>
       <UserMainSettings user={user} />
     </ProfileLayout>
   );

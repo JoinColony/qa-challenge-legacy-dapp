@@ -41,7 +41,7 @@ const HomeLayout = ({
   return (
     <div className={styles.main}>
       <Helmet>
-        <title>{colony?.displayName || colony?.name} Colony Actions List</title>
+        <title>Colony Home | {colony?.displayName || colony?.name} Colony</title>
       </Helmet>
       <div
         className={styles.mainContentGrid}
