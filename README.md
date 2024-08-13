@@ -7,7 +7,7 @@ You will be required to write a test script that will test a simulated web3 apli
 The overall simulated application is a list of _"Actions"_ which are essentially a collection _(one or more)_ of blockchain events that have been groupped together. There are several types of Actions, each with their own specific properties, data and descriptions.
 
 <div>
-  <img src="./.assets/screenshot.png" alt="Legacy Dapp Screenshot" title="Legacy Dapp Screenshot"/>
+  <img width="1653" src="./.assets/screenshot.png" alt="Legacy Dapp Screenshot" title="Legacy Dapp Screenshot"/>
 </div>
 
 ## Tech Stack
@@ -76,7 +76,7 @@ We cannot guarantee that it will work on Windows systems, but if you still want 
 - Show test reports: **`npm test:report`**
 
 <div>
-  <img src="./.assets/tests.png" alt="Running Tests" title="Running Tests"/>
+  <img width="720" src="./.assets/tests.png" alt="Running Tests" title="Running Tests"/>
 </div>
 
 ## Notes, Tips and Tricks
@@ -97,7 +97,7 @@ The challenge requirements are listed below in detail, and it's expected that yo
 - Ensure the list renders the correct number of initial items: 10 items per page
 
 <div>
-  <img src="./.assets/list.png" alt="Actions List" title="Actions List"/>
+  <img width="842" src="./.assets/list.png" alt="Actions List" title="Actions List"/>
 </div>
 
 ### Individual Item
@@ -118,7 +118,7 @@ The challenge requirements are listed below in detail, and it's expected that yo
 | `GENERIC` | `Generic Action` |
 
 </div>
-  <img src="./.assets/item.png" alt="Individual Action Item" title="Individual Action Item"/>
+  <img width="823" src="./.assets/item.png" alt="Individual Action Item" title="Individual Action Item"/>
 </div>
 
 ### Filtering and Sorting
@@ -128,9 +128,9 @@ The challenge requirements are listed below in detail, and it's expected that yo
 - Ensure all two filters plus the sort can work in combination
 
 <div>
-  <img src="./.assets/team-filter.png" alt="Action List Team Filter" title="Action List Team Filter"/>
-  <img src="./.assets/type-filter.png" alt="Action List Type Filter" title="Action List Type Filter"/>
-  <img src="./.assets/date-sort.png" alt="Action List Date Sort" title="Action List Date Sort"/>
+  <img width="350" src="./.assets/team-filter.png" alt="Action List Team Filter" title="Action List Team Filter"/>
+  <img width="150" src="./.assets/type-filter.png" alt="Action List Type Filter" title="Action List Type Filter"/>
+  <img width="112" src="./.assets/date-sort.png" alt="Action List Date Sort" title="Action List Date Sort"/>
 </div>
 
 ### Loading
@@ -139,7 +139,7 @@ The challenge requirements are listed below in detail, and it's expected that yo
 - Ensure the "Load More" button works as expected: loads more items, disappears when there are no more items to load
 
 <div>
-  <img src="./.assets/loading.gif" alt="List Loading" title="List Loading"/>
+  <img width="220" src="./.assets/loading.gif" alt="List Loading" title="List Loading"/>
 </div>
 
 ### Bonus Points
@@ -148,7 +148,7 @@ The challenge requirements are listed below in detail, and it's expected that yo
 - Ensure the user avatar matches the one in the list item
 
 <div>
-  <img src="./.assets/user-popover.png" alt="User Popover" title="User Popover"/>
+  <img width="210" src="./.assets/user-popover.png" alt="User Popover" title="User Popover"/>
 </div>
 
 ## Expected Completion Time
