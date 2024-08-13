@@ -3,10 +3,10 @@ import React from 'react';
 import Tag from '../../Tag/Tag';
 
 import DetailsWidget from '../../DetailsWidget/DetailsWidget';
-// import ActionsPageFeed from '~dashboard/ActionsPageFeed';
 import { Action, ActionTypes } from '../../ActionsList/ActionsList';
 import ActionTitle from '../../ActionTitle/ActionTitle';
 import ActionsPageEvent from '../../ActionsPageEvent/ActionsPageEvent';
+import BackText from '../../BackTexts/BackText';
 
 import styles from './DefaultAction.module.css';
 
@@ -34,11 +34,13 @@ const DefaultAction = ({
   action: { status},
   action,
   user,
+  colony: { name, displayName: colonyDisplayName },
   colony,
 }: Props) => {
 
   return (
     <div className={styles.main}>
+      <BackText name={name} displayName={colonyDisplayName} />
       <div className={styles.upperContainer}>
         <p className={styles.tagWrapper}>
           <Tag

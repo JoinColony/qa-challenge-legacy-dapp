@@ -82,7 +82,6 @@ const AvatarDropdown = ({
             })}
             onClick={toggle}
             type="button"
-            data-test="avatarDropdown"
           >
             {walletAddress && (
               <Avatar

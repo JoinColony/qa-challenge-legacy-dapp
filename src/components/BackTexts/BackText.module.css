@@ -1,0 +1,27 @@
+.main {
+  position: relative;
+}
+
+.back {
+  position: absolute;
+  display: block;
+  margin: 4px 0 0 18px;
+  background-color: red;
+
+  /*
+   * @NOTE Increase the click-able area
+   */
+  padding: 10px 15px 10px 0;
+  max-width: 240px;
+  overflow: hidden;
+  border: none;
+  background-color: transparent;
+  font-size: var(--size-small);
+  font-weight: var(--weight-bold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text);
+  cursor: pointer;
+  top: -76px;
+  left: 20px
+}
