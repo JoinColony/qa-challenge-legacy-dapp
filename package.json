@@ -37,7 +37,8 @@
     "eject": "react-scripts eject",
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui",
-    "test:report": "npx playwright show-report"
+    "test:report": "npx playwright show-report",
+    "postinstall": "npx playwright install --with-deps"
   },
   "browserslist": {
     "production": [
