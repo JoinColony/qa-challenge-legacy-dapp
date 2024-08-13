@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import HomeLayout from "../HomeLayout/HomeLayout";
 import ActionsPage from "../ActionsPage/ActionsPage";
 import UserProfileEdit from "../UserProfileEdit/UserProfileEdit";
+import FourOFour from "../FourOFour/FourOFour";
 
 interface RouteParams {
   [key: string]: string;
@@ -45,7 +46,7 @@ const NaiveRouter: React.FC = () => {
     return <ActionsPage actionId={transactionId} />;
   }
 
-  return <div>404 Not Found</div>;
+  return <FourOFour />;
 };
 
 export const navigate = (path: string) => {
