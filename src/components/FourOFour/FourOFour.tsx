@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 // @ts-ignore
 import logo from './logo.svg';
@@ -15,6 +16,9 @@ console.log(nakedMole);
 
 const FourOFour = () => (
   <main className={styles.layoutMain}>
+    <Helmet>
+      <title>Page Not Found | 404</title>
+    </Helmet>
     <div className={styles.herowrapper}>
       <header className={styles.header}>
         <figure className={styles.logo} role="presentation">
