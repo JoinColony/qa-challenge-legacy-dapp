@@ -101,7 +101,7 @@ The challenge requirements are listed below in detail, and it's expected that yo
 </div>
 
 ### Individual Item
-- Ensure list items have the expected elements: user avar, title, status, date, team
+- Ensure list items have the expected elements: user avatar, title, status, date, team
 - Ensure the title correspons to the correct type
 
 | Type | Library |
