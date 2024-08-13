@@ -34,8 +34,10 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "test:report": "npx playwright show-report"
   },
   "browserslist": {
     "production": [
@@ -50,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@playwright/test": "^1.46.0",
     "@types/lodash": "^4.17.7",
     "@types/react-helmet": "^6.1.11",
     "binary-loader": "^0.0.1",

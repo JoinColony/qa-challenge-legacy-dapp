@@ -52,11 +52,20 @@ We cannot guarantee that it will work on Windows systems, but if you still want 
 
 - Clone the repository
 - Install the dependencies: **`npm install`** _(make sure you are on the correct version of Node. If you are using `nvm`, you can run `nvm use` to switch to the correct version)_
+- Ensure you have the playwright browsers and dependencies installed: **`npx playwright install --with-deps`** _(this might take a while depending on your internet connection)_
 - Start the project: **`npm start`**
 
 ## Accessing the Application
 
 - Frontend: [http://localhost:3000](http://localhost:3000)
+
+## Running Tests
+
+- Run tests in headless mode: **`npm test`**
+- Run tests in UI mode: **`npm test:ui`**
+- Show test reports: **`npm test:report`**
+
+<img src="./.assets/tests.png" alt="Running Tests" title="Running Tests"/>
 
 ## Notes, Tips and Tricks
 
@@ -64,6 +73,7 @@ We cannot guarantee that it will work on Windows systems, but if you still want 
 - The application is a simulation of a real-world application, so you can expect to find bugs, issues, edge cases as well as network connectivity problems.
 - Wallet addresses, contract address and transaction hashes are all simulated, and while they still use the same hex string encoding, their format does not match a real world environment.
 - While the [Playwright](https://github.com/microsoft/playwright) framework has already been set up for you, and it's the one we use internally, feel free use a different framework if you are more comfortable with it _(eg: Cypress, Selenium, etc)_.
+- A basic starter test can be found inside the `tests` folder, but feel free to create your own test files and structure.
 - If at any point you run into issues setting up or running this repository, please reach out to us for help, as while some technical skills are required for this role, getting this working **is not part of the challenge**.
 
 ## The Challenge
