@@ -31,6 +31,7 @@ const Avatar = ({
   children,
   className,
   size,
+  ...props
 }: Props) => {
   const avatar = getIcon(seed);
   const mainClass = size ? styles[size] : styles.main;
@@ -57,6 +58,7 @@ const Avatar = ({
     <figure
       className={className ? `${mainClass} ${className}` : mainClass}
       title={seed}
+      {...props}
     >
       <img
         src={avatar}

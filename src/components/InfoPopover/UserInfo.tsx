@@ -22,12 +22,14 @@ const UserInfo = ({
         <Avatar
           size="s"
           seed={`${username}+${walletAddress}`}
+          data-username={username}
+          data-wallet-address={walletAddress}
         />
       </div>
       <div className={styles.textContainer}>
         {username && (
           <p className={styles.userName}>
-            <UserMention username={username} />
+            <UserMention username={username} data-user-walletaddress={walletAddress} />
           </p>
         )}
         <div className={styles.address}>

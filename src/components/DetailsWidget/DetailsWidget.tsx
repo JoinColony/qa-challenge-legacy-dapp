@@ -130,6 +130,8 @@ const DetailsWidget = ({
                   <div className={styles.tokenAvatar}>
                     <Avatar
                       seed={`${tokenName}+${tokenAddress}`}
+                      data-tokenname={tokenName}
+                      data-tokenaddress={tokenAddress}
                       size="xxs"
                     />
                   </div>

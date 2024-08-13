@@ -56,7 +56,7 @@ const UserMainSettings = ({
               <InputLabel label="Unique Username" />
               <UserMention
                 username={username || ''}
-                // className={}
+                data-user-walletaddress={walletAddress}
               />
             </div>
             <FieldSet className={styles.inputFieldSet}>

@@ -17,6 +17,8 @@ const DetailsWidgetUser = ({ walletAddress, username }: Props) => {
       <div className={styles.avatar}>
         <Avatar
           seed={`${username}+${walletAddress}`}
+          data-username={username}
+          data-wallet-address={walletAddress}
           size="s"
         />
       </div>

@@ -25,6 +25,8 @@ const Sidebar = ({
     <Avatar
       size='xl'
       seed={`${username}+${walletAddress}`}
+      data-username={username}
+      data-wallet-address={walletAddress}
     />
   </>
 );

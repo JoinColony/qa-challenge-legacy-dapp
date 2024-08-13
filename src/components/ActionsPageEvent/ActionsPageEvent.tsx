@@ -40,6 +40,7 @@ const ActionsPageEvent = ({
     type,
     createdAt,
     username,
+    walletAddress,
     amount,
     tokenSymbol,
     domainName,
@@ -47,7 +48,7 @@ const ActionsPageEvent = ({
     permissions,
     version,
   },
-  user: { username: actorUsername },
+  user: { username: actorUsername, address: actorAddress },
   colony: { displayName: colonyDisplayName },
 }: Props) => {
 
@@ -55,31 +56,31 @@ const ActionsPageEvent = ({
 
   switch (type) {
     case ActionTypes.Mint:
-      eventTitle = <span><UserMention username={actorUsername || ''} className={styles.mention} /> minted {amount || 0} {tokenSymbol || '???'} to the <UserMention username={colonyDisplayName || ''} className={styles.mention} showAtSymbol={false} /> colony</span>;
+      eventTitle = <span><UserMention username={actorUsername || ''} data-user-walletaddress={actorAddress} className={styles.mention} /> minted {amount || 0} {tokenSymbol || '???'} to the <UserMention username={colonyDisplayName || ''} className={styles.mention} showAtSymbol={false} /> colony</span>;
       break;
     case ActionTypes.Payment:
-      eventTitle = <span><UserMention username={actorUsername || ''} className={styles.mention} /> paid {amount || 0} {tokenSymbol || '???'} from {capitalize(domainName || '')} to <UserMention username={username || ''} className={styles.mention} /></span>;
+      eventTitle = <span><UserMention username={actorUsername || ''} data-user-walletaddress={actorAddress} className={styles.mention} /> paid {amount || 0} {tokenSymbol || '???'} from {capitalize(domainName || '')} to <UserMention username={username || ''} data-user-walletaddress={walletAddress} className={styles.mention} /></span>;
       break;
     case ActionTypes.Transfer:
-      eventTitle = <span><UserMention username={actorUsername || ''} className={styles.mention} /> transferred {amount || 0} {tokenSymbol || '???'} from {capitalize(domainName || '')} to {capitalize(targetDomainName || '')}</span>;
+      eventTitle = <span><UserMention username={actorUsername || ''} data-user-walletaddress={actorAddress} className={styles.mention} /> transferred {amount || 0} {tokenSymbol || '???'} from {capitalize(domainName || '')} to {capitalize(targetDomainName || '')}</span>;
       break;
     case ActionTypes.Reputation:
-      eventTitle = <span><UserMention username={actorUsername || ''} className={styles.mention} /> awarded <UserMention username={username || ''} className={styles.mention} /> with a {amount || 0} points reputation award</span>;
+      eventTitle = <span><UserMention username={actorUsername || ''} data-user-walletaddress={actorAddress} className={styles.mention} /> awarded <UserMention username={username || ''} data-user-walletaddress={walletAddress} className={styles.mention} /> with a {amount || 0} points reputation award</span>;
       break;
     case ActionTypes.Permissions:
-      eventTitle = <span><UserMention username={actorUsername || ''} className={styles.mention} /> assigned the {permissions?.replaceAll(',', ', ')} permissions in the {capitalize(domainName || '')} team to <UserMention username={username || ''} className={styles.mention} /></span>;
+      eventTitle = <span><UserMention username={actorUsername || ''} data-user-walletaddress={actorAddress} className={styles.mention} /> assigned the {permissions?.replaceAll(',', ', ')} permissions in the {capitalize(domainName || '')} team to <UserMention username={username || ''} data-user-walletaddress={walletAddress} className={styles.mention} /></span>;
       break;
     case ActionTypes.Upgrade:
-      eventTitle = <span><UserMention username={actorUsername || ''} className={styles.mention} /> has upgraded this colony to version {version}!</span>;
+      eventTitle = <span><UserMention username={actorUsername || ''} data-user-walletaddress={actorAddress} className={styles.mention} /> has upgraded this colony to version {version}!</span>;
       break;
     case ActionTypes.Details:
-      eventTitle = <span><UserMention username={actorUsername || ''} className={styles.mention} /> change the <UserMention username={colonyDisplayName || ''} className={styles.mention} showAtSymbol={false} /> colony's details</span>;
+      eventTitle = <span><UserMention username={actorUsername || ''} data-user-walletaddress={actorAddress} className={styles.mention} /> change the <UserMention username={colonyDisplayName || ''} className={styles.mention} showAtSymbol={false} /> colony's details</span>;
       break;
     case ActionTypes.Address:
-      eventTitle = <span><UserMention username={actorUsername || ''} className={styles.mention} /> change the <UserMention username={colonyDisplayName || ''} className={styles.mention} showAtSymbol={false} /> colony's address book</span>;
+      eventTitle = <span><UserMention username={actorUsername || ''} data-user-walletaddress={actorAddress} className={styles.mention} /> change the <UserMention username={colonyDisplayName || ''} className={styles.mention} showAtSymbol={false} /> colony's address book</span>;
       break;
     case ActionTypes.Team:
-      eventTitle = <span><UserMention username={actorUsername || ''} className={styles.mention} /> add team: {capitalize(domainName || '')}</span>;
+      eventTitle = <span><UserMention username={actorUsername || ''} data-user-walletaddress={actorAddress} className={styles.mention} /> add team: {capitalize(domainName || '')}</span>;
       break;
 
     default:

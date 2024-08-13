@@ -71,7 +71,7 @@ const AvatarDropdown = ({
         <div className={styles.main}>
           {username && (
             <div className={styles.username}>
-              <UserMention username={username} />
+              <UserMention username={username} data-user-walletaddress={walletAddress} />
             </div>
           )}
           <button
@@ -86,6 +86,8 @@ const AvatarDropdown = ({
             {walletAddress && (
               <Avatar
                 seed={`${username}+${walletAddress}`}
+                data-username={username}
+                data-wallet-address={walletAddress}
                 size={'s'}
               />
             )}

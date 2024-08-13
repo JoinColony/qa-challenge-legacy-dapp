@@ -14,7 +14,11 @@ const UserMention = ({
   ...props
 }: Props) => {
   return (
-    <span className={styles.mention} {...props}>
+    <span
+      className={styles.mention}
+      data-username={username}
+      {...props}
+    >
       {' '}
       {`${showAtSymbol ? '@' : ''}${username}`}
     </span>

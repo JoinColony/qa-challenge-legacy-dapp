@@ -14,6 +14,7 @@ interface Props {
 const ActionTitle = ({
   action: {
     username,
+    walletAddress,
     type,
     domainName,
     targetDomainName,
@@ -31,16 +32,16 @@ const ActionTitle = ({
       title = <span>Mint {amount || 0} {tokenSymbol || '???'}</span>;
       break;
     case ActionTypes.Payment:
-      title = <span>Pay <UserMention username={username || ''} className={styles.mention} /> {amount || 0} {tokenSymbol || '???'}</span>;
+      title = <span>Pay <UserMention username={username || ''} data-user-walletaddress={walletAddress} className={styles.mention} /> {amount || 0} {tokenSymbol || '???'}</span>;
       break;
     case ActionTypes.Transfer:
       title = <span>Move {amount || 0} {tokenSymbol || '???'} from {domainName} to {targetDomainName}</span>;
       break;
     case ActionTypes.Reputation:
-      title = <span>Awarded <UserMention username={username || ''} className={styles.mention} /> with a {amount || 0} points reputation award</span>;
+      title = <span>Awarded <UserMention username={username || ''} data-user-walletaddress={walletAddress} className={styles.mention} /> with a {amount || 0} points reputation award</span>;
       break;
     case ActionTypes.Permissions:
-      title = <span>Assign the {permissions?.replaceAll(',', ', ')} permissions in {domainName} to <UserMention username={username || ''} className={styles.mention} /></span>;
+      title = <span>Assign the {permissions?.replaceAll(',', ', ')} permissions in {domainName} to <UserMention username={username || ''} data-user-walletaddress={walletAddress} className={styles.mention} /></span>;
       break;
     case ActionTypes.Upgrade:
       title = <span>Upgrade to version {version}!</span>;

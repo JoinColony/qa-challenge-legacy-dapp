@@ -29,6 +29,9 @@ const ActionsListItem = ({
     status,
     domainName,
     createdAt,
+    id,
+    type,
+    domainId,
   },
   item,
 }: Props) => {
@@ -58,7 +61,11 @@ const ActionsListItem = ({
   };
 
   return (
-    <li>
+    <li
+      data-action-id={id}
+      data-action-team-id={domainId}
+      data-action-type={type}
+    >
       <div
         /*
          * @NOTE This is non-interactive element to appease the DOM Nesting Validator
@@ -111,6 +118,8 @@ const ActionsListItem = ({
               <div>
                 <Avatar
                   seed={`${username}+${walletAddress}`}
+                  data-username={username}
+                  data-wallet-address={walletAddress}
                   size='s'
                 />
               </div>
