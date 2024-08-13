@@ -6,7 +6,9 @@ You will be required to write a test script that will test a simulated web3 apli
 
 The overall simulated application is a list of _"Actions"_ which are essentially a collection _(one or more)_ of blockchain events that have been groupped together. There are several types of Actions, each with their own specific properties, data and descriptions.
 
-<img src="./.assets/screenshot.png" alt="Legacy Dapp Screenshot" title="Legacy Dapp Screenshot"/>
+<div>
+  <img src="./.assets/screenshot.png" alt="Legacy Dapp Screenshot" title="Legacy Dapp Screenshot"/>
+</div>
 
 ## Tech Stack
 
@@ -16,11 +18,13 @@ This app has been set up using the following tech stack, using our Legacy UI as 
 - **Backend:** Backend is all mocked, no real backend is used
 - **Testing Framework:** `Playwright` _(see below for possible alternatives)_
 
-<img width="36" src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png" alt="React" title="React"/>
-<img width="36" src="https://user-images.githubusercontent.com/25181517/183890598-19a0ac2d-e88a-4005-a8df-1ee36782fde1.png" alt="TypeScript" title="TypeScript"/>
-<img width="36" src="https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png" alt="CSS" title="CSS"/>
-<img width="36" src="https://user-images.githubusercontent.com/25181517/192107856-aa92c8b1-b615-47c3-9141-ed0d29a90239.png" alt="GraphQL" title="GraphQL"/>
-<img width="36" src="https://github.com/marwin1991/profile-technology-icons/assets/25181517/37cb517e-d059-4cc0-8124-1a72b663167c" alt="Playwright" title="Playwright"/>
+<div>
+  <img width="36" src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png" alt="React" title="React"/>
+  <img width="36" src="https://user-images.githubusercontent.com/25181517/183890598-19a0ac2d-e88a-4005-a8df-1ee36782fde1.png" alt="TypeScript" title="TypeScript"/>
+  <img width="36" src="https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png" alt="CSS" title="CSS"/>
+  <img width="36" src="https://user-images.githubusercontent.com/25181517/192107856-aa92c8b1-b615-47c3-9141-ed0d29a90239.png" alt="GraphQL" title="GraphQL"/>
+  <img width="36" src="https://github.com/marwin1991/profile-technology-icons/assets/25181517/37cb517e-d059-4cc0-8124-1a72b663167c" alt="Playwright" title="Playwright"/>
+</div>
 
 ## Prerequisites
 
@@ -31,13 +35,17 @@ To successfully set up and run this challenge, you'll need the following install
 
 We suggest using `nvm` to manage your Node.js versions [https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm).
 
-<img width="36" src="https://user-images.githubusercontent.com/25181517/183568594-85e280a7-0d7e-4d1a-9028-c8c2209e073c.png" alt="Node.js" title="Node.js"/>
+<div>
+  <img width="36" src="https://user-images.githubusercontent.com/25181517/183568594-85e280a7-0d7e-4d1a-9028-c8c2209e073c.png" alt="Node.js" title="Node.js"/>
+</div>
 
 ## Browser Environment
 
 This challenge is designed on, and it only expected to support the [Chrome Web Bbrowser](https://www.google.com/chrome/).
 
-<img width="36" src="./.assets/chrome.png" alt="Chrome" title="Chrome"/>
+<div>
+  <img width="36" src="./.assets/chrome.png" alt="Chrome" title="Chrome"/>
+</div>
 
 ## Operating System
 
@@ -45,8 +53,10 @@ This challenge was built and tested on MacOS and Linux systems and it's expected
 
 We cannot guarantee that it will work on Windows systems, but if you still want to run it that way, we suggest using [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) for virtualization.
 
-<img width="36" src="https://user-images.githubusercontent.com/25181517/186884152-ae609cca-8cf1-4175-8d60-1ce1fa078ca2.png" alt="macOS" title="macOS"/>
-<img width="36" src="https://github.com/marwin1991/profile-technology-icons/assets/76662862/2481dc48-be6b-4ebb-9e8c-3b957efe69fa" alt="Linux" title="Linux"/>
+<div>
+  <img width="36" src="https://user-images.githubusercontent.com/25181517/186884152-ae609cca-8cf1-4175-8d60-1ce1fa078ca2.png" alt="macOS" title="macOS"/>
+  <img width="36" src="https://github.com/marwin1991/profile-technology-icons/assets/76662862/2481dc48-be6b-4ebb-9e8c-3b957efe69fa" alt="Linux" title="Linux"/>
+</div>
 
 ## Starting the Project
 
@@ -65,7 +75,9 @@ We cannot guarantee that it will work on Windows systems, but if you still want 
 - Run tests in UI mode: **`npm test:ui`**
 - Show test reports: **`npm test:report`**
 
-<img src="./.assets/tests.png" alt="Running Tests" title="Running Tests"/>
+<div>
+  <img src="./.assets/tests.png" alt="Running Tests" title="Running Tests"/>
+</div>
 
 ## Notes, Tips and Tricks
 
@@ -84,7 +96,9 @@ The challenge requirements are listed below in detail, and it's expected that yo
 - Ensure all the list components are rendered as expected: list and list items, title, load more button, team filter, date sort, type filter
 - Ensure the list renders the correct number of initial items: 10 items per page
 
-<img src="./.assets/list.png" alt="Actions List" title="Actions List"/>
+<div>
+  <img src="./.assets/list.png" alt="Actions List" title="Actions List"/>
+</div>
 
 ### Individual Item
 - Ensure list items have the expected elements: user avar, title, status, date, team
@@ -103,7 +117,9 @@ The challenge requirements are listed below in detail, and it's expected that yo
 | `TEAM` | `New team: <team>` |
 | `GENERIC` | `Generic Action` |
 
-<img src="./.assets/item.png" alt="Individual Action Item" title="Individual Action Item"/>
+</div>
+  <img src="./.assets/item.png" alt="Individual Action Item" title="Individual Action Item"/>
+</div>
 
 ### Filtering and Sorting
 - Ensure the list is correctly sorted by date: ascending and descending
@@ -111,23 +127,29 @@ The challenge requirements are listed below in detail, and it's expected that yo
 - Ensure the list is correctly filtered by team: only the items from the selected team are displayed
 - Ensure all two filters plus the sort can work in combination
 
-<img src="./.assets/team-filter.png" alt="Action List Team Filter" title="Action List Team Filter"/>
-<img src="./.assets/type-filter.png" alt="Action List Type Filter" title="Action List Type Filter"/>
-<img src="./.assets/date-sort.png" alt="Action List Date Sort" title="Action List Date Sort"/>
+<div>
+  <img src="./.assets/team-filter.png" alt="Action List Team Filter" title="Action List Team Filter"/>
+  <img src="./.assets/type-filter.png" alt="Action List Type Filter" title="Action List Type Filter"/>
+  <img src="./.assets/date-sort.png" alt="Action List Date Sort" title="Action List Date Sort"/>
+</div>
 
 ### Loading
 - Ensure list loading renders the correct loader component
 - Account for loading errors or failures
 - Ensure the "Load More" button works as expected: loads more items, disappears when there are no more items to load
 
-<img src="./.assets/loading.gif" alt="List Loading" title="List Loading"/>
+<div>
+  <img src="./.assets/loading.gif" alt="List Loading" title="List Loading"/>
+</div>
 
 ### Bonus Points
 - Ensure the user popover component opens and closes as expected
 - Ensure the user popover component displays the correct user information: user avatar, user name, user address
 - Ensure the user avatar matches the one in the list item
 
-<img src="./.assets/user-popover.png" alt="User Popover" title="User Popover"/>
+<div>
+  <img src="./.assets/user-popover.png" alt="User Popover" title="User Popover"/>
+</div>
 
 ## Expected Completion Time
 
