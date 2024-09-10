@@ -102,7 +102,7 @@ The challenge requirements are listed below in detail, and it's expected that yo
 
 ### Individual Item
 - Ensure list items have the expected elements: user avatar, title, status, date, team
-- Ensure the title correspons to the correct type
+- Ensure the title corresponds to the correct type
 
 | Type | Library |
 | --------| --------|
@@ -145,7 +145,8 @@ The challenge requirements are listed below in detail, and it's expected that yo
 ### Bonus Points
 - Ensure the user popover component opens and closes as expected
 - Ensure the user popover component displays the correct user information: user avatar, user name, user address
-- Ensure the user avatar matches the one in the list item
+- Ensure the user avatar matches the one in the list item, as well as it's the correct size `42x42px`
+- Ensure the user name is rendered correctly, font weight `700`, font size `13px` and the color is `rgb(254, 94, 124)`
 
 <div>
   <img width="210" src="./.assets/user-popover.png" alt="User Popover" title="User Popover"/>
